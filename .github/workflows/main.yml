@@ -81,21 +81,21 @@ jobs:
         NAME1='frontend'
         NAME2='products'
         NAME3='shopping-cart'
-        sed -i -- "s/REGISTRY/$REGISTRY/g" docker-compose.yml
-        sed -i -- "s/REPOSITORY1/$REPOSITORY1/g" docker-compose.yml
-        sed -i -- "s/REPOSITORY2/$REPOSITORY2/g" docker-compose.yml
-        sed -i -- "s/REPOSITORY3/$REPOSITORY3/g" docker-compose.yml
-        sed -i -- "s/VERSION1/$VERSION1/g" docker-compose.yml
-        sed -i -- "s/VERSION2/$VERSION2/g" docker-compose.yml
-        sed -i -- "s/VERSION3/$VERSION3/g" docker-compose.yml
-        sed -i -- "s/NAME1/$NAME1/g" docker-compose.yml
-        sed -i -- "s/NAME2/$NAME2/g" docker-compose.yml
-        sed -i -- "s/NAME3/$NAME3/g" docker-compose.yml
-        cat docker-compose.yml
+        sed -i -- "s/REGISTRY/$REGISTRY/g" docker-compose.yaml
+        sed -i -- "s/REPOSITORY1/$REPOSITORY1/g" docker-compose.yaml
+        sed -i -- "s/REPOSITORY2/$REPOSITORY2/g" docker-compose.yaml
+        sed -i -- "s/REPOSITORY3/$REPOSITORY3/g" docker-compose.yaml
+        sed -i -- "s/VERSION1/$VERSION1/g" docker-compose.yaml
+        sed -i -- "s/VERSION2/$VERSION2/g" docker-compose.yaml
+        sed -i -- "s/VERSION3/$VERSION3/g" docker-compose.yaml
+        sed -i -- "s/NAME1/$NAME1/g" docker-compose.yaml
+        sed -i -- "s/NAME2/$NAME2/g" docker-compose.yaml
+        sed -i -- "s/NAME3/$NAME3/g" docker-compose.yaml
+        cat docker-compose.yaml
     - uses: actions/upload-artifact@v3
       with:
         name: docker
-        path: docker-compose.yml
+        path: docker-compose.yaml
         
   deploy_to_dev:
     name: 🛳 Deploy to Develop "develop"
@@ -115,7 +115,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         port: ${{ secrets.PORT }}
         key: ${{ secrets.KEY }}
-        source: "docker-compose.yml"
+        source: "docker-compose.yaml"
         target: "/home/ec2-user"    
     - name: Deploy Docker-Compose
       uses: appleboy/ssh-action@v0.1.7
@@ -146,7 +146,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         port: ${{ secrets.PORT }}
         key: ${{ secrets.KEY }}
-        source: "docker-compose.yml"
+        source: "docker-compose.yaml"
         target: "/home/ec2-user"    
     - name: Deploy Docker-Compose
       uses: appleboy/ssh-action@v0.1.7
