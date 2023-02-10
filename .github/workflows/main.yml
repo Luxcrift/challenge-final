@@ -57,13 +57,13 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build and push
       run: |
-        VERSION1=`jq -r '.version' ./frontend/package.json`
+        VERSION1=`jq -r '.version' frontend/package.json`
         docker build -t $REGISTRY/$REPOSITORY1:$VERSION frontend
         docker push $REGISTRY/$REPOSITORY1:$VERSION1
-        VERSION2=`jq -r '.version' ./products/package.json`
+        VERSION2=`jq -r '.version' products/package.json`
         docker build -t $REGISTRY/$REPOSITORY2:$VERSION2 products
         docker push $REGISTRY/$REPOSITORY2:$VERSION2
-        VERSION3=`jq -r '.version' ./shopping-cart/package.json`
+        VERSION3=`jq -r '.version' shopping-cart/package.json`
         docker build -t $REGISTRY/$REPOSITORY3:$VERSION3 shopping
         docker push $REGISTRY/$REPOSITORY3:$VERSION3
   
