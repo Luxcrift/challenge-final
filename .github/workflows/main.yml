@@ -120,7 +120,7 @@ jobs:
     - name: Deploy Docker-Compose
       uses: appleboy/ssh-action@v0.1.7
       with:
-        host: ${{ secrets.HOST }}
+        host: ${{ secrets.HOST_D }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
