@@ -58,7 +58,7 @@ jobs:
     - name: Build and push
       run: |
         VERSION1=`jq -r '.version' frontend/package.json`
-        docker build -t $REGISTRY/$REPOSITORY1:$VERSION frontend
+        docker build -t $REGISTRY/$REPOSITORY1:$VERSION1 frontend
         docker push $REGISTRY/$REPOSITORY1:$VERSION1
         VERSION2=`jq -r '.version' products/package.json`
         docker build -t $REGISTRY/$REPOSITORY2:$VERSION2 products
