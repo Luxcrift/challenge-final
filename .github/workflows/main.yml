@@ -64,7 +64,7 @@ jobs:
         docker build -t $REGISTRY/$REPOSITORY2:$VERSION2 products
         docker push $REGISTRY/$REPOSITORY2:$VERSION2
         VERSION3=`jq -r '.version' shopping-cart/package.json`
-        docker build -t $REGISTRY/$REPOSITORY3:$VERSION3 shopping
+        docker build -t $REGISTRY/$REPOSITORY3:$VERSION3 shopping-cart
         docker push $REGISTRY/$REPOSITORY3:$VERSION3
   
   Update-Compose:
