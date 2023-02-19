@@ -10,11 +10,11 @@ jobs:
   deploy_EC2s:
     runs-on: ubuntu-latest
     name: 🛳 Deploy Terraform EC2s
-    if: ${{ github.ref == 'refs/heads/Terraform' }}
+    if: ${{ github.ref == 'refs/heads/terraform' }}
     environment: EC2s
     defaults:
       run:
-        working-directory: ./terraform
+        working-directory: ./Terraform
     steps:
     - uses: actions/checkout@v3
 
