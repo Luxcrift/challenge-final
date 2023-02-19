@@ -31,6 +31,13 @@ resource "aws_security_group" "develop" {
       to_port = 443
       protocol = "TCP"
     }
+    ingress {
+      cidr_blocks = ["0.0.0.0/0" ]
+      description = "Acceso al puerto https"
+      from_port = 8080
+      to_port = 8080
+      protocol = "TCP"
+    }
 
     egress {
       cidr_blocks = ["0.0.0.0/0"]
