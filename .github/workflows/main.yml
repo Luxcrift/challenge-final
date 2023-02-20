@@ -72,12 +72,12 @@ jobs:
 
       - name: Build an image from Dockerfile
         run: |
-          docker build -t trivy-image:${{ github.sha }} .
+          docker build -t trivy-frontend:${{ github.sha }} .
       - name: Run Trivy vulnerability scanner
         continue-on-error: true
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'trivy-image:${{ github.sha }}'
+          image-ref: 'trivy-frontend:${{ github.sha }}'
           format: 'sarif'
           output: 'trivy-results.sarif'
           severity: 'CRITICAL,HIGH'
