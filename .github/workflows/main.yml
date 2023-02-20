@@ -4,11 +4,11 @@ name: App Final
 on:
   push:
     branches: 
-      - develop
-      - testing
+      - develop      
   pull_request:
     branches:
       - master
+      - testing
       
 
 env:
