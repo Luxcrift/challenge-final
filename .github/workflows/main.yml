@@ -4,11 +4,12 @@ name: App Final
 on:
   push:
     branches: 
-      - develop      
+      - develop
+      - testing
   pull_request:
     branches:
       - master
-      - testing
+      
 
 env:
   REGISTRY: luxcrift
