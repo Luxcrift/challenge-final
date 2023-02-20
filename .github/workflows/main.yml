@@ -63,6 +63,31 @@ jobs:
         node-version: '14'
     - run: npm run test
     
+  trivy:
+    name: trivy
+    needs: [Test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build an image from Dockerfile
+        run: |
+          docker build -t trivy-image:${{ github.sha }} .
+      - name: Run Trivy vulnerability scanner
+        continue-on-error: true
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'trivy-image:${{ github.sha }}'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL,HIGH'
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'trivy-results.sarif'
+  
   Build:
     name: 📌 Build and Push DockerHub"
     runs-on: ubuntu-latest
