@@ -20,6 +20,29 @@ env:
 
 jobs:
 
+  
+  secrets:
+    name: 📍 Scan Secret
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: gitleaks scan 
+      uses: gitleaks/gitleaks-action@v2
+    - name: Scan Horusec
+      continue-on-error: true
+      run: |
+       curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/master/deployments/scripts/install.sh | bash -s latest
+       horusec start -p="./" --config-file-path $PWD/horusec-config.json -o=json -O=$PWD/horusec-config.json
+       ls -lrt
+    - name: Upload  security scan result as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: horusec
+        path: horusec-config.json 
+    - name: Upload SARIF file
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: 'results.sarif'
   Init:
     name: 📍 Installs Dependencies
     runs-on: ubuntu-latest
