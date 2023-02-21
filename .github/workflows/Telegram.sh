@@ -1,7 +1,7 @@
 #!/bin/bash
 # set -x
 BOT_URL="https://api.telegram.org/bot6124937865:AAEcUK3JnB_YW65I2TGUl1flSddvAMHP058/sendMessage"
-TELEGRAM_CHAT_ID="-1692690779"
+TELEGRAM_CHAT_ID="-6124937865"
 # Set formatting
 PARSE_MODE="Markdown"
 COMMIT=$(git log -1 --pretty=format:"%s")
