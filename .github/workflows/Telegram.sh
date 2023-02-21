@@ -9,8 +9,8 @@ BUILD_STATUS="SUCCESS"
 VERSION1=`jq -r '.version' ./frontend/package.json`
 VERSION2=`jq -r '.version' ./products/package.json`
 VERSION3=`jq -r '.version' ./shopping-cart/package.json`
-BRANCH=${GITHUB_HEAD_REF}
-REPO=${REPOSITORY}
+BRANCH=${{ github.head_ref }}
+REPO=${GITHUB_REPOSITORY}
 
 # Send message function
 send_msg () {
