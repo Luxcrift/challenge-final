@@ -30,6 +30,6 @@ Deploy 🚀*${BUILD_STATUS}!*
 \`Autor ✅:      ${GITHUB_ACTOR}\`
 *Commit Msg 💭:*
 _${COMMIT}_
-[Job Log view here 🤟]("hola")
+[Bootcamp DevOps Team Diosito Rules 🤟]
 \`-----------------------------------------------------------\`
 "
