@@ -9,7 +9,7 @@ BUILD_STATUS="SUCCESS"
 VERSION1=`jq -r '.version' ./frontend/package.json`
 VERSION2=`jq -r '.version' ./products/package.json`
 VERSION3=`jq -r '.version' ./shopping-cart/package.json`
-BRANCH=${github.head_ref}
+BRANCH=${branch_name##refs/heads/}
 REPO=${GITHUB_REPOSITORY}
 
 # Send message function
