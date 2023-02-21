@@ -94,7 +94,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/$DC_VERSION/do
 sudo chmod +x /usr/local/bin/docker-compose
 sudo service docker restart
 sudo yum install -y certbot python2-certbot-nginx
-sudo certbot --nginx --register-unsafely-without-email --agree-tos -d "${SSLIP}" --cert-name nginx
+sudo certbot --nginx --register-unsafely-without-email --agree-tos -d ${SSLIP} --cert-name nginx
 sudo usermod -aG docker nginx
 sudo service docker restart
 EOF
