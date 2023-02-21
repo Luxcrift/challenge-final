@@ -10,7 +10,7 @@ resource "aws_instance" "develop" {
       "Owner" = "DevOps Team"
     }
     user_data = file("https.sh")
-
+}
 resource "aws_instance" "testing" {
     ami = "${var.ami}"
     instance_type = "${var.instance_type}"
