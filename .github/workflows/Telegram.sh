@@ -9,6 +9,8 @@ BUILD_STATUS="SUCCESS"
 VERSION1=`jq -r '.version' ./frontend/package.json`
 VERSION2=`jq -r '.version' ./products/package.json`
 VERSION3=`jq -r '.version' ./shopping-cart/package.json`
+BRANCH=${GITHUB_HEAD_REF}
+REPO=${REPOSITORY}
 
 # Send message function
 send_msg () {
@@ -20,8 +22,8 @@ send_msg () {
 send_msg "
 \`-----------------------------------------------------------\`
 Deploy 🚀*${BUILD_STATUS}!*
-\`Repository 📦:  ${REPOSITORY}\`
-\`Branch 🏷:      ${GITHUB_HEAD_REF}\`
+\`Repository 📦:  ${REPO}\`
+\`Branch 🏷:       ${BRANCH}\`
 \`Version Frontend ✅:           ${VERSION1}\`
 \`Version Products ✅:           ${VERSION2}\`
 \`Version Shopping-Cart ✅:      ${VERSION3}\`
