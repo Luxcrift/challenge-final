@@ -1,6 +1,7 @@
 FROM node:17-alpine
 
 WORKDIR /usr/src/app
+RUN apk update && apk upgrade zlib
 
 COPY package*.json ./
 RUN npm install
