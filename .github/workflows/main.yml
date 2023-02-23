@@ -4,11 +4,10 @@ name: App Final
 on:
   push:
     branches: 
-      - develop      
-  pull_request:
-    branches:
+      - develop
       - master
       - testing
+
       
 
 env:
@@ -54,6 +53,7 @@ jobs:
 
   Test:
     name: 🕯 Unit Test
+    needs: [Init]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3  
@@ -92,7 +92,7 @@ jobs:
   Build:
     name: 📌 Build and Push DockerHub"
     runs-on: ubuntu-latest
-    needs: [Init,Test]
+    needs: [Test]
     steps:
     - uses: actions/checkout@v3
     - name: Set up QEMU
