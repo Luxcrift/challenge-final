@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+  namespace: monorepo
+spec:
+  selector:
+    app: frontend-deploy
+  ports:
+  - port: 3000
+    targetPort: 3000
+    nodePort: 31000
+  type: NodePort
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shopping-service
+  namespace: monorepo
+spec:
+  selector:
+    app: shopping-deploy
+  ports:
+  - port: 3002
+    targetPort: 3002
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: products-service
+  namespace: monorepo
+spec:
+  selector:
+    app: challenge
+  ports:
+  - port: 3001
+    targetPort: 3001
