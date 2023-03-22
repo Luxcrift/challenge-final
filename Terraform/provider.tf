@@ -4,7 +4,7 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "challenge-diosito-123"
+    bucket = "github-gfm"
     key = "global/mystatefile/terraform.tfstate"
     region = "us-east-1"
 
